@@ -2835,7 +2835,7 @@ class ArchivesRouter extends ModelRouter<Archive> {
     const { company, doct, departament, storehouse, retroDate } = req.body
     let workbook = XLSX.readFile(req.files.file.path);
 
-    
+
 
     let sheet_name_list = workbook.SheetNames;
 
@@ -3733,6 +3733,76 @@ class ArchivesRouter extends ModelRouter<Archive> {
 
   }
 
+  // biggestDate = async (req, resp, next) => {
+
+  //   console.log(`Inicio da sincrozição às ${moment().format()}`)
+
+  //   const companies = (await Company.find({})).map(el => { return el._id })
+
+  //   for (const item of companies) {
+
+  //     const company = item
+  //     const volumes = (await Volume.find({ company: company, cronDate: true })).map(el => { return el._id })
+
+  //     for (const i of volumes) {
+       
+  //       const volume = i
+  //       console.log(`Verificando a caixa ${volume} empresa ${company}`)
+  //       const files = await Archive.find({ volume: volume })
+
+
+  //       if (files.length > 0) {
+
+  //         const doct = files.map(el => { return el.doct }) //obtenho o documento
+  //         const starCurrent = await Doct.findOne({ _id: doct })
+
+  //         const arr = starCurrent.label
+  //         const docItem = arr.findIndex((label, index, array) => label.timeControl === true)/// controlar os q derem false sequencia só dos q tem time control
+
+  //         if (docItem != -1) {
+
+  //           const tags = files.map(el => { return el.tag[docItem] })
+  //           let tagsyear = []
+  //           for (const tag of tags) {
+  //             const date = parseInt(tag.slice(-4))
+
+  //             if (!isNaN(date)) {
+  //               tagsyear.push(date)
+  //             }
+
+  //           }
+
+  //           let onlyDates = [...new Set(tagsyear)]
+  //           const biggestYear = Math.max(...onlyDates).toString()
+  //           const smallestYear = Math.min(...onlyDates).toString()
+  //           try {
+  //             await Volume.update({ _id: volume }, { $set: { biggestYear: biggestYear, smallestYear: smallestYear, cronDate: false } }).catch(next)
+  //             console.log(`Sincronizados ${volume} da empresa id ${company} data e hora ${moment().format()}`)
+  //           } catch (error) {
+  //             console.log("erro ao atualizar a caixa", volume)
+
+  //           }
+
+  //         }
+  //         console.log("nada para fazer nessa caixa desativando cronDate-", volume)
+  //         await Volume.update({ _id: volume }, { $set: { cronDate: false } }).catch(next)
+
+
+
+
+  //       }
+  //       await Volume.update({ _id: volume }, { $set: { cronDate: false } }).catch(next)
+  //       console.log("nada para fazer nessa caixa desativando cronDate-", volume)
+
+  //     }
+
+  //   }
+
+  //   console.log(`Final da sincrozição às ${moment().format()}`)
+
+
+  // }
+
 
 
 
@@ -3778,10 +3848,81 @@ class ArchivesRouter extends ModelRouter<Archive> {
       authorize("SNOW", "TYWIN", "DAENERYS", 'STARK', 'TULLY', 'VALE'),
       this.find
     ]);
-    // applycation.post(`${this.basePath}/cron`, [
+    // applycation.post(`${this.basePath}/biggestDate`, [
 
-    //   this.cron
+    //   this.biggestDate
     // ]);
+    cron.schedule('0 20 * * * *', async () => {
+
+      console.log(`Inicio da sincrozição às ${moment().format()}`)
+
+      const companies = (await Company.find({})).map(el => { return el._id })
+  
+      for (const item of companies) {
+  
+        const company = item
+        const volumes = (await Volume.find({ company: company, cronDate: true })).map(el => { return el._id })
+  
+        for (const i of volumes) {
+         
+          const volume = i
+          console.log(`Verificando a caixa ${volume} empresa ${company}`)
+          const files = await Archive.find({ volume: volume })
+  
+  
+          if (files.length > 0) {
+  
+            const doct = files.map(el => { return el.doct }) //obtenho o documento
+            const starCurrent = await Doct.findOne({ _id: doct })
+  
+            const arr = starCurrent.label
+            const docItem = arr.findIndex((label, index, array) => label.timeControl === true)/// controlar os q derem false sequencia só dos q tem time control
+  
+            if (docItem != -1) {
+  
+              const tags = files.map(el => { return el.tag[docItem] })
+              let tagsyear = []
+              for (const tag of tags) {
+                const date = parseInt(tag.slice(-4))
+  
+                if (!isNaN(date)) {
+                  tagsyear.push(date)
+                }
+  
+              }
+  
+              let onlyDates = [...new Set(tagsyear)]
+              const biggestYear = Math.max(...onlyDates).toString()
+              const smallestYear = Math.min(...onlyDates).toString()
+              try {
+                await Volume.update({ _id: volume }, { $set: { biggestYear: biggestYear, smallestYear: smallestYear, cronDate: false } })
+                console.log(`Sincronizados ${volume} da empresa id ${company} data e hora ${moment().format()}`)
+              } catch (error) {
+                console.log("erro ao atualizar a caixa", volume)
+  
+              }
+  
+            }
+            console.log("nada para fazer nessa caixa desativando cronDate-", volume)
+            await Volume.update({ _id: volume }, { $set: { cronDate: false } })
+  
+  
+  
+  
+          }
+          await Volume.update({ _id: volume }, { $set: { cronDate: false } })
+          console.log("nada para fazer nessa caixa desativando cronDate-", volume)
+  
+        }
+  
+      }
+  
+      console.log(`Final da sincrozição às ${moment().format()}`)
+
+    },{
+      scheduled: true,
+      timezone: "America/Sao_Paulo"
+    })
 
     cron.schedule('0 18 * * * *', async () => {
       console.log(`Final da sincrozição às ${moment().format()}`)
@@ -3828,7 +3969,7 @@ class ArchivesRouter extends ModelRouter<Archive> {
 
               })
 
-              await Volume.updateOne({ _id: volume }, { $set: { cron: false, lastUpdateVolume: Date.now(), totalArchives: totalFiles, totalPages: pages} })
+              await Volume.updateOne({ _id: volume }, { $set: { cron: false, lastUpdateVolume: Date.now(), totalArchives: totalFiles, totalPages: pages } })
 
             }
 

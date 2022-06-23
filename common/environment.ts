@@ -15,8 +15,7 @@ export const environment = {
     //novo banco ja com ajsute de relat[rios]
      
     // db: { url: process.env.DB_URL || "mongodb://archioDB:AbsuHS7eHTup32oerzoetm9Zr1lA29@cluster0-shard-00-00-rr6sx.mongodb.net:27017/archioProduction?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin" },
-      db: { url: process.env.DB_URL || "mongodb://earchiveTester:cdh0tAYUFJXDMB3t@cluster0-shard-00-00-rr6sx.mongodb.net:27017/earchive?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin" },
-
+    db: { url: process.env.DB_URL || "mongodb://earchiveTester:cdh0tAYUFJXDMB3t@cluster0-shard-00-00-rr6sx.mongodb.net:27017/earchive?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin" },
     api:{
         api_upload:process.env.API_UPLOAD || "https://mupload.archio.com.br/api/posts/multidelete"
     },
