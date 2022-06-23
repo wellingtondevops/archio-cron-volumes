@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+    rabbitmq:
+        container_name: same-rabbit
+        environment:
+            - RABBITMQ_DEFAULT_USER=archio
+            - RABBITMQ_DEFAULT_PASS=archio
+        volumes:
+            - '/home/g2013wcoliveira/rabbitmq/data:/var/lib/rabbitmq'
+        ports:
+            - '5672:5672'
+            - '15672:15672'
+        image: 'rabbitmq:management'

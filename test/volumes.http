@@ -1,0 +1,12 @@
+ 
+
+
+ # relatório completo ARcHIO
+GET http://localhost:3000/volumes/5f18848f3f7750388cec85a8
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNjAwMjU5ODAwfQ.qB7npTSgnUBYfR3p_8k5TtwJuG2BEokl0sqwUp-beXM
+
+
+
+
+

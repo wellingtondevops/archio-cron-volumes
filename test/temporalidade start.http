@@ -1,0 +1,21 @@
+ 
+
+
+ # relatório completo ARcHIO
+PATCH  http://localhost:3000/archives/startcurrentdate/5f6df91dae489b6184c7212b
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNjAxMzExNzA5fQ.4GoZT6k-0e_VgyXI1NdVFHTmrDCRHQKxi896nwN_hxo
+{
+    
+    "startCurrentDate" = "2020-09-24"
+
+}
+###
+PATCH  http://localhost:3000/archives/startcurrentdate/5f6df91dae489b6184c7212b
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNTk4NTM4MDU2fQ.LkpG163zXLXxdLeh-c1zI2BV7V7W5E4KIH8K6Q87wFI
+
+{
+    "startCurrentDate" : "2020-10-23"
+}
+    

@@ -1,0 +1,51 @@
+#find all
+GET http://localhost:3000/profiles?_page=0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNTk4NTM4MDU2fQ.LkpG163zXLXxdLeh-c1zI2BV7V7W5E4KIH8K6Q87wFI
+
+
+###
+#Criar Profiles
+POST http://localhost:3000/profiles
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3ZWxsaW5ndG9uLmNhcnZhbGhvQHNtYXJ0c2Nhbi5jb20uYnIiLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNjEzMDUxNTcwfQ.rNaQlbU6fCmv_ACn33O7OQiNoojxJoyaf5SBjwYfgeg
+
+{
+	"profileName": "VALE",
+	"profilePlaceHolder": "PESQ VALE",
+	"profileExternal": false
+	
+}
+###
+#Criar Profiles Danerys
+POST http://localhost:3000/profiles
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNjAyNjc0MTcwfQ.L7VQRJydEbjEmHsdrE_rUGg2M_baX4hPD-6QsCPUlFc
+
+{
+    "profileName":"WESTEROS",
+    "profilePlaceHolder":"SOLICITANTE",
+    "profileExternal":false,
+    "write":false,
+    "read":true,
+    "change":false
+}
+
+###
+#SHOW PROFILE
+GET http://localhost:3000/profiles/5f480fa791317b42fc85ce71
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNTk4NTM4MDU2fQ.LkpG163zXLXxdLeh-c1zI2BV7V7W5E4KIH8K6Q87wFI
+
+###
+#LISTA DE PROFILES stark
+
+
+
+###
+#LISTA DE PROFILES Danerios
+GET http://localhost:3000/profiles/list
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNTk4NjMyNTM2fQ.47tSBzOXArpwpbgcdYp3F8zwT89m0-SM6svte-UwH74
+
+

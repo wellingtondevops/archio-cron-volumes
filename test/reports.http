@@ -1,0 +1,18 @@
+
+POST http://localhost:3000/users/authenticate
+Content-Type: application/json
+
+{
+    "email":"2013wcoliveira@gmail.com",
+    "password":"124578"
+}
+
+
+###
+#em testes qa relatório inicial
+
+GET http://localhost:3000/companies/reports/5ec7dccd25baa211a73896a7
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNTk5MjI3ODQ5fQ.GCm0SatgBCCS6HhcxLmzPO3VrU6_SeCX9HboV0wwO04
+
+

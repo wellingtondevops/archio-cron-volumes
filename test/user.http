@@ -1,0 +1,99 @@
+#USUÁRIO FAZ LOGIN
+
+POST http://localhost:3000/users/authenticate
+Content-Type: application/json
+
+{
+    
+    "email":"2013wcoliveira@gmail.com",
+    "password":"124578"
+}
+
+###
+ GET   http://localhost:3000/users/5f70ad1c57963313ee2d6fa3
+Content-Type: application/json
+
+###
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNjAwMjU5ODAwfQ.qB7npTSgnUBYfR3p_8k5TtwJuG2BEokl0sqwUp-beXMusers/5f5cbd9499c12214c4ca6cc3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNTk4NTM4MDU2fQ.LkpG163zXLXxdLeh-c1zI2BV7V7W5E4KIH8K6Q87wFI
+
+###
+
+POST http://localhost:3000/users/search?_page=0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNjAyNzg2NzQxfQ.fou8LCazdUwcdKe1yCMYvzbLnLbpditXxzc0DVc7KP0
+
+{
+	"name":"",
+	"email":""
+}
+
+###
+
+POST http://localhost:3000/users/requesters/search?_page=0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNjAyNzg2NzQxfQ.fou8LCazdUwcdKe1yCMYvzbLnLbpditXxzc0DVc7KP0
+
+{
+	"name":"",
+	"email":""
+}
+###
+PUT  http://localhost:3000/users/5e7e59771790bd1d24b24f9a
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNTk4NTM4MDU2fQ.LkpG163zXLXxdLeh-c1zI2BV7V7W5E4KIH8K6Q87wFI
+
+{
+	 "name": "nome trocado",
+  "email": "usr@urs.com",
+  "mailSignup": "gedearchive@gmail.com",
+  "__v": 0,
+  "permissions": [
+    {
+      "company": {
+        "_id": "5e4a94aa2b422507c4db5b8c",
+        "name": "UFTM UNIVERSIDADE FEDERAL DO TRIANGULO MINEIRO"
+      },
+      "_id": "5f2825083d245a328915168b",
+      "docts": []
+    }
+  ],
+  "userActive": true,
+  "updateBy": [],
+  "createBy": [],
+  "actions": [],
+  "acceptanceTerm": [],
+  "externalUser": false,
+  "dateCreated": "2020-03-27T19:52:23.971Z",
+  "isRequester": false,
+  "isSponser": false,
+  "profiles": [
+    "TYWIN"
+  ]
+	
+}
+###
+PATCH   http://localhost:3000/users/5f5cba0daa952a58687c775f 
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNTk4NTM4MDU2fQ.LkpG163zXLXxdLeh-c1zI2BV7V7W5E4KIH8K6Q87wFI
+
+{
+	"password":"123456"
+
+
+}
+
+###
+#post novo usuário
+POST http://localhost:3000/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNTk4NTM4MDU2fQ.LkpG163zXLXxdLeh-c1zI2BV7V7W5E4KIH8K6Q87wFI
+
+{
+	 "name": "INDEXADOR",
+   "email": "index@local.com.br",   
+   "profiles":"5f4949d32592804e0892a811"   
+   
+}
+

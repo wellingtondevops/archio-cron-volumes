@@ -1,0 +1,10 @@
+#find all
+POST https://apiqa.archio.com.br/exportarchives/excelBase64
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNTk4OTc5MDM3fQ.dz18UjB7dtUUh7OkTB3S45Q3PAIt9ZiJ2zNddVvBWec
+
+{
+	 "company": "5e46d12e4587937fd9d1b1df",
+      "status": "ATIVO",
+	 "doct": "5e46d2da4587937fd9d1b1e8"
+}

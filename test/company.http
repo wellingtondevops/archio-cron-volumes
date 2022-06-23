@@ -1,0 +1,9 @@
+ 
+
+
+ # relatório completo ARcHIO
+GET https://api.archio.com.br/companies/reports/5ec7dccd25baa211a73896a7
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3ZWxsaW5ndG9uLmNhcnZhbGhvQHNtYXJ0c2Nhbi5jb20uYnIiLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNTk5NTg4MjMzfQ.9lcq8TyHuHWzbVj1rvZaHyQfprvhaDL1L5sFwNvqcBk
+
+

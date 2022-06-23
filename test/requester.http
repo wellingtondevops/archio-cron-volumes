@@ -1,0 +1,42 @@
+
+
+###
+//CRIAR UM SOLICITANTE
+POST http://localhost:3000/users/requesters
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNjAyNjc3MDUzfQ.z_1Y2G520G0Tll-Gl3JRtDvuSjzM_LKcgzkRlfa7Ja8
+
+{
+	 "name": "USUÁRIO Q GOSTA DE PAPEL",
+   "email": "papeleiro@papel.com",
+   "forne": "034 991830399",
+   "profiles":"5f86de68020c233e44f12519",
+   	"permissions" : [{
+      "company": "5e46d2224587937fd9d1b1e3",
+       "docts":["5f3fdf7f8c41850bff910f0c",
+                  "5f1880a93fc7f05c9da39dda"
+       ]
+     }
+	]
+}
+
+###
+POST http://localhost:3000/users/requesters/search?_page=0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNjAyNjc3MDUzfQ.z_1Y2G520G0Tll-Gl3JRtDvuSjzM_LKcgzkRlfa7Ja8
+
+{
+	 "name": "",
+   "email": "",
+   "company":"5e46d2224587937fd9d1b1e3"
+}
+
+
+###
+GET  http://localhost:3000/users/requesters?_page=0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMDEzd2NvbGl2ZWlyYUBnbWFpbC5jb20iLCJpc3MiOiJhcmNoaW8tYXBpIiwiaWF0IjoxNjAyNjc3MDUzfQ.z_1Y2G520G0Tll-Gl3JRtDvuSjzM_LKcgzkRlfa7Ja8
+
+
+
+
